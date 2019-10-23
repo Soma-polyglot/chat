@@ -1,7 +1,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|e-mail|strinng|null: false|
+|e-mail|strinng|unique: false|
 |password|strinng|null: false|
 |nickname|strinng|null: false|
 ### Association
