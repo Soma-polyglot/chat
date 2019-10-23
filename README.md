@@ -33,8 +33,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|group_id|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 |image|strinng|null: false|
 |text|text|null: false|
 ### Association
