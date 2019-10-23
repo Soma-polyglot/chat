@@ -7,7 +7,7 @@
 |nickname|strinng|null: false|
 ### Association
 - has_many :group_users
-- belongs_to :groups
+- has_many :groups
 
 ## groupsテーブル
 
