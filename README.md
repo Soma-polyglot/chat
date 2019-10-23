@@ -14,18 +14,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
 ### Association
 - has_many :groups_users
 - has_many :users, through: :group_users
 - has_many :messages
+
 ## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :group
 - belongs_to :user
@@ -36,7 +35,8 @@
 |------|----|-------|
 |user_id|integer|null: false|
 |group_id|integer|null: false|
-
+|image|strinng|null: false|
+|text|strinng|null: false|
 ### Association
 - belongs_to :group
 - belongs_to :user
