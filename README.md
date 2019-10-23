@@ -13,8 +13,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_name|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, 
+|group_name|integer|null: false, 
 
 ### Association
 - has_many :groups_users
