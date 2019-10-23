@@ -36,7 +36,7 @@
 |user_id|integer|null: false|
 |group_id|integer|null: false|
 |image|strinng|null: false|
-|text|strinng|null: false|
+|text|text|null: false|
 ### Association
 - belongs_to :group
 - belongs_to :user
