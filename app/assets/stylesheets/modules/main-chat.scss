@@ -81,9 +81,10 @@
   }
 
   .form {
+    background-color: #ddd;
+    box-sizing: border-box;
     height: 90px;
     padding: 20px 40px;
-    background-color: #ddd;
     display: flex;
 
     .new_message {
