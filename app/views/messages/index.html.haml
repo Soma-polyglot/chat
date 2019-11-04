@@ -12,25 +12,12 @@
         .main-header__edit-btn
           Edit
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker てっくたろう
-          %p.message__upper-info__date 2019/10/25(Fri) 16:57:23
-        %p.message__text やっほー
-
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker 独学推し意識高い系
-          %p.message__upper-info__date 2019/10/25(Fri) 16:58:45
-        %p.message__text こんにちは
-
+      = render @messages
     .form
-      %form.new_message.new_message{"accept-charset": "UTF-8", action: "/groups/3476/messages", enctype: "multipart/form-data", method: "post"}
-        %input{name: "utf8", type: "hidden", value: "✓"}/
-        %input{name: "authenticity_token", type: "hidden", value: "NPrjQF1SegqxHUOV6icQnZr6Ie2jhg8nHUzi9W95c25S3NNKMRyMi4wjq40saGP1u3BIPDKOXXDO8WM0jy4/GQ=="}
-          .input-box
-            %input.message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}
-            %label.input-box__image{for: "message_image"}
-              %i.fa.fa-image
-              %input.message_image.input-box__image__file{name: "message[image]", type: "file"}
-          %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
