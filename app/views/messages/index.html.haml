@@ -4,9 +4,9 @@
     .main-header
       .main-header__left-box
         .main-header__left-box__current-group
-          とうきょう
+          = @group.name
         %ul.main-header__left-box__member-list__member
-          Member : てっくたろう
+          Member : hoge
         %li.main-header__left-box__member-list__member
       %a{href: "/groups/3476/edit"}
         .main-header__edit-btn
@@ -15,7 +15,7 @@
       = render @messages
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        = f.text_field :content, class: 'form__message', id: 'new_message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
