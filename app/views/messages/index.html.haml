@@ -6,7 +6,8 @@
         .main-header__left-box__current-group
           = @group.name
         %ul.main-header__left-box__member-list__member
-          Member : hoge
+          Member :
+          = group_user.user.name
         %li.main-header__left-box__member-list__member
       %a{href: "/groups/3476/edit"}
         .main-header__edit-btn
