@@ -20,6 +20,10 @@ $(function(){
     return html;
   }
   
+  function animate() {
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formdata = new FormData(this);
@@ -36,7 +40,7 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html);
       $('.submit').prop('disabled', false);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      animate();
       $('form')[0].reset();
     })
 
@@ -48,9 +52,7 @@ $(function(){
   
   var reloadMessages = function () {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      //groups/グループID/messagesのパスとマッチしたら以下を実行する。
       var last_message_id = $('.message:last').data("message-id");
-console.log(last_message_id)
       $.ajax({
         url: "api/messages",
         type: 'get',
@@ -59,11 +61,11 @@ console.log(last_message_id)
       })
       .done(function (messages) {
         var insertHTML = '';
-        messages.forEach(function (message) {//配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+        messages.forEach(function (message) {
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
         })
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        animate();
       })
       .fail(function () {
         alert('自動更新に失敗しました');
