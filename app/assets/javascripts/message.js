@@ -39,9 +39,8 @@ $(function(){
     .done(function(message){
       var html = buildHTML(message);
       $('.messages').append(html);
-      $('.submit').prop('disabled', false);
       animate();
-      $('form')[0].reset();
+      $('.submit').prop('disabled', false);
     })
 
     .fail(function() {
@@ -65,7 +64,6 @@ $(function(){
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
         })
-        animate();
       })
       .fail(function () {
         alert('自動更新に失敗しました');
